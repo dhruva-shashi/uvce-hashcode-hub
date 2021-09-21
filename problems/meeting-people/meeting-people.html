@@ -1,0 +1,72 @@
+<html>
+	<head>
+		<title>Meeting People</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<link href="../style.css" rel="stylesheet">
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+		<script id="eval.js"></script>
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="us">
+				UVCE Hash Code Hub
+			</div>
+			<div class="user">
+				Dhruva S
+			</div>
+		</div>
+
+		<div class="content" id="content">
+			<div class="problem-pane">
+				<div class="problem-title">
+					Meeting People
+				</div>
+
+				<div class="problem-statement">
+					<p>You are a volunteer and you are given the task of informing students about the events going on in UVCE. There are \(N\) groups in the college with IDs \(i, 1 \le i \le N\). In the \(i^{th}\) group, there are \(a_i\) members and they stay in the premises for \(b_i\) seconds. After \(b_i\) seconds, the members of the group leave. As a volunteer, you have to meet certain groups before their waiting time and make sure you meet as many students as possible.</p>
+					<p>All the groups assemble at the \(0^{th}\) second. To inform one group, you will take exacly \(1\) second of time. It is not compulsory to visit all the groups. You can meet a group only if they have not left, i.e, if their waiting time has not been exhausted.</p>
+				</div>
+
+				<div class="specifications">
+					<div class="subhead">
+						Input Format
+					</div>
+
+					<ul>
+						<li>Each input data set is provided in a plain text file containing exclusively ASCII characters with lines terminated with a single '\n' character. When a single line contains multiple elements, they are separated by single spaces.</li>
+						<li>The first line of the data set contains an integer \(N\).</li>
+						<li>The second line consists of \(N\) integers \(a_1, a_2, a_3, ...., a_N\), the waiting time of each group.</li>
+						<li>The third line consists of \(N\) integers \(b_1, b_2, b_3, ...., b_N\), the number of people in each group.</li>
+					</ul>
+				</div>
+
+				<div class="specifications">
+					<div class="subhead">
+						Constraints
+					</div>
+
+					<ul>
+						<li>\(1 \le N \le 10^5\)</li>
+						<li>\(1 \le a_i \le N\)</li>
+						<li>\(1 \le b_i \le 10^6\)</li>
+					</ul>
+				</div>
+
+				<div class="specifications">
+					<div class="subhead">
+						Output Format
+					</div>
+
+					<ul>
+						<li>The output file should contain two lines.</li>
+						<li>The first line should contain an integer \(K, 0 \le K \le N,\) the number of groups you decide to meet.</li>
+						<li>The second line should contain \(K\) integers, the indices of the groups that you decide to meet.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</body>
+<html>

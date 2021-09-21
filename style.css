@@ -1,0 +1,106 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background: #99FF99;
+
+	width: 98%;
+}
+
+.header {
+	position: fixed;
+
+	top: 0px;
+	left: 0px;
+	right: 0px;
+
+	background: #000000;
+	color: #FFFFFF;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	padding: 20px;
+}
+
+.us {
+	font-size: 40px;
+	float: left;
+}
+
+.user {
+	font-size: 20px;
+	float: right;
+}
+
+.card-container {
+	padding-bottom: 50px;
+}
+
+.content {
+	padding: 100px;
+	padding-top: 150px;
+}
+
+.card {
+	background: #FFFFFF;
+
+	border-radius: 10px;
+	padding: 30px;
+
+	box-shadow: 0 5px 15px #36A832;
+}
+
+.card-header {
+	color: #000000;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	padding-bottom: 20px;
+}
+
+.title {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.description {
+	padding-top: 20px;
+	padding-bottom: 50px;
+
+	color: #999999;
+}
+
+.button-container {
+	display: flex;
+	justify-content: flex-end;
+}
+
+input[type=button] {
+	width: 400px;
+
+	background: #99FF99;
+	color: #000000;
+
+	border-radius: 10px;
+	border-color: #36A832;
+
+	font-size: 30px;
+	font-weight: bold;
+
+	box-shadow: 0 5px 10px #AAAAAA;
+
+	padding: 20px;
+}
+
+input[type=button]:hover {
+	cursor: pointer;
+
+	background: #36A832;
+	color: #FFFFFF;
+}
+
+.date {
+	font-size: 20px;
+}
