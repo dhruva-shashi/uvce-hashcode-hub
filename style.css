@@ -33,6 +33,12 @@ body {
 	float: right;
 }
 
+.us a {
+	text-decoration: none;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
 .card-container {
 	padding-bottom: 50px;
 }

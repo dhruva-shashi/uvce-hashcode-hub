@@ -20,16 +20,33 @@ body {
 	align-items: center;
 
 	padding: 20px;
-}
-
-.us {
-	font-size: 40px;
-	float: left;
+	z-index: 1;
 }
 
 .user {
 	font-size: 20px;
 	float: right;
+}
+
+.us {
+	font-size: 40px;
+	font-weight: bold;
+	float: left;
+	color: #FFFFFF;
+}
+
+.us a {
+	text-decoration: none;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+.input-file {
+	padding: 10px;
+}
+
+.input-file:hover {
+	background: #EEEEEE;
 }
 
 .card-container {
@@ -127,6 +144,20 @@ input[type=button] {
 	box-shadow: 0 5px 10px #AAAAAA;
 
 	padding: 20px;
+}
+
+img {
+	height: 20px;
+	width: auto;
+}
+
+a {
+	text-decoration: none;
+	color: #000000;
+}
+
+.input-file a:link {
+	color: #000000;
 }
 
 input[type=button]:hover {
