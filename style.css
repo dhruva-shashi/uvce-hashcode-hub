@@ -41,11 +41,12 @@ body {
 
 .card-container {
 	padding-bottom: 50px;
+	min-width: 400px;
 }
 
 .content {
-	padding: 100px;
-	padding-top: 150px;
+	margin: 10%;
+	margin-top: 150px;
 }
 
 .card {
@@ -82,11 +83,11 @@ body {
 .button-container {
 	display: flex;
 	justify-content: flex-end;
+
+	margin-left: 0px;
 }
 
 input[type=button] {
-	width: 400px;
-
 	background: #99FF99;
 	color: #000000;
 
@@ -99,6 +100,9 @@ input[type=button] {
 	box-shadow: 0 5px 10px #AAAAAA;
 
 	padding: 20px;
+
+	padding-left: 40px;
+	padding-right: 40px;
 }
 
 input[type=button]:hover {
