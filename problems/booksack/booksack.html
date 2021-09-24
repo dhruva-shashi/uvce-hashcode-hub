@@ -68,7 +68,7 @@
 					<div class="subhead">
 						Download Input Files
 					</div>
-					<a href="input-files/input-a.txt" download>
+					<a href="input-files/input-a.txt" download="input-a.txt">
 						<div class="input-file">
 							<img src="../download-icon.png">
 							Input A
@@ -102,42 +102,89 @@
 
 				<div class="modal" id="modal">
 					<div class="modal-content">
-						<div class="file-upload">
-							<input type="file" id="input-file-a" accept=".txt">
-							<input type="button" id="submit-a" value="Choose File - A">
-							<div id="file-name" class="file-name">Upload file</div>
+						<div class="submission-pane">
+							<div class="file-upload">
+								<input type="file" id="input-file-a" accept=".txt">
+								<input type="button" id="submit-a" value="Choose File - A">
+								<div id="file-name" class="file-name">Upload file</div>
+							</div>
+							<div class="file-upload">
+								<input type="file" id="input-file-b" accept=".txt">
+								<input type="button" id="submit-b" value="Choose File - B">
+								<div id="file-name" class="file-name">Upload file</div>
+							</div>
+							<div class="file-upload">
+								<input type="file" id="input-file-c" accept=".txt">
+								<input type="button" id="submit-c" value="Choose File - C">
+								<div id="file-name" class="file-name">Upload file</div>
+							</div>
+							<div class="file-upload">
+								<input type="file" id="input-file-d" accept=".txt">
+								<input type="button" id="submit-d" value="Choose File - D">
+								<div id="file-name" class="file-name">Upload file</div>
+							</div>
+							<div class="file-upload">
+								<input type="file" id="input-file-e" accept=".txt">
+								<input type="button" id="submit-e" value="Choose File - E">
+								<div id="file-name" class="file-name">Upload file</div>
+							</div>
+							<div class="files-submit">
+								<input type="button" id="submit-all" value="Submit">
+							</div>
 						</div>
-						<div class="file-upload">
-							<input type="file" id="input-file-b" accept=".txt">
-							<input type="button" id="submit-b" value="Choose File - B">
-							<div id="file-name" class="file-name">Upload file</div>
-						</div>
-						<div class="file-upload">
-							<input type="file" id="input-file-c" accept=".txt">
-							<input type="button" id="submit-c" value="Choose File - C">
-							<div id="file-name" class="file-name">Upload file</div>
-						</div>
-						<div class="file-upload">
-							<input type="file" id="input-file-d" accept=".txt">
-							<input type="button" id="submit-d" value="Choose File - D">
-							<div id="file-name" class="file-name">Upload file</div>
-						</div>
-						<div class="file-upload">
-							<input type="file" id="input-file-e" accept=".txt">
-							<input type="button" id="submit-e" value="Choose File - E">
-							<div id="file-name" class="file-name">Upload file</div>
-						</div>
-						<div class="files-submit">
-							<input type="button" id="submit-all" value="Submit">
+						<div class="prev-submissions">
+							<table>
+								<tr>
+									<th>
+										Input
+									</th>
+									<th>
+										Last Submission
+									</th>
+									<th>
+										Best score
+									</th>
+								</tr>
+								<tr>
+									<td>
+										A
+									</td>
+
+								</tr>
+								<tr>
+									<td>
+										B
+									</td>
+									
+								</tr>
+								<tr>
+									<td>
+										C
+									</td>
+									
+								</tr>
+								<tr>
+									<td>
+										D
+									</td>
+									
+								</tr>
+								<tr>
+									<td>
+										E
+									</td>
+									
+								</tr>
+							</table>
 						</div>
 					</div>
 
 					<script>
-						modal = document.getElementById("modal");
-						open_modal = document.getElementById("open-modal");
-						substitute_button = document.getElementById("submit-a");
-						real_button = document.getElementById("input-file-a");
-						file_name = document.getElementById("file-name");
+						var modal = document.getElementById("modal");
+						var open_modal = document.getElementById("open-modal");
+						var substitute_button = document.getElementById("submit-a");
+						var real_button = document.getElementById("input-file-a");
+						var file_name = document.getElementById("file-name");
 
 						open_modal.addEventListener("click", function() {
 							modal.style.display = "block";

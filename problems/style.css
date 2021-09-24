@@ -197,14 +197,17 @@ input[type=button]:hover {
 	color: #000000;
 
 	font-size: 20px;
-	overflow: auto;
+	display: flex;
+	justify-content: space-between;
 }
 
 .file-upload {
 	display: flex;
 	padding-top: 10px;
-	padding-left: 50px;
-	align-items: center;
+	padding-left: 10px;
+	width: 80%;
+	align-items: center;	
+	justify-content: space-between;
 }
 
 input[type=file] {
@@ -225,10 +228,25 @@ input[type=file] {
 }
 
 .file-name {
-	padding-left: 100px;
+	margin-left: 50px;
+	width: 50%;
 }
 
 .files-submit {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	margin-top: 30px;
+}
+
+.submission-pane {
+	width: 50%;
+	padding: 20px;
+	overflow: auto;
+}
+
+.submission-pane input[type=button] {
+	width: 50%;
+	min-width: 180px;
+}

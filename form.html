@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>UVCE Hash Code Hub</title>
+		<meta charset="utf-8">
+		<script type="application/json" src="data.json"></script>
+		<link href="style.css" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+		<script src="script.js"></script>
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="us">
+				<a href="index.html"> UVCE Hash Code Hub </a>
+			</div>
+		</div>
+		<div class="content" id="problem-form">
+			<table>
+				<tr>
+					<td>
+						Problem Name
+					</td>
+					<td>
+						<input type="text" id="text-problem-name">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Problem ID
+					</td>
+					<td>
+						<div id="text-problem-id">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Number of input files
+					</td>
+					<td>
+						<input type="number" id="text-number-files">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Problem Statement
+					</td>
+					<td>
+						<textarea id="text-problem-statement" rows="10" cols="50"></textarea>
+					</td>
+					<td>
+						<input type="button" value="Preview" id="preview-problem-statement" onclick="preview(`problem-statement`)">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Input Format
+					</td>
+					<td>
+						<textarea id="text-input-format" rows="10" cols="50"></textarea>
+					</td>
+					<td>
+						<input type="button" value="Preview" id="preview-input-format" onclick="preview(`input-format`)">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Constraints
+					</td>
+					<td>
+						<textarea id="text-constraints" rows="10" cols="50"></textarea>
+					</td>
+					<td>
+						<input type="button" value="Preview" id="preview-constraints" onclick="preview(`constraints`)">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Output Format
+					</td>
+					<td>
+						<textarea id="text-output-format" rows="10" cols="50"></textarea>
+					</td>
+					<td>
+						<input type="button" value="Preview" id="preview-output-format" onclick="preview(`output-format`)">
+					</td>
+				</tr>
+			</table>
+
+			<div class="download-json">
+				<input type="button" value="Download JSON file" id="download-json" onclick="down_json()">
+			</div>
+			
+			<div class="modal" id="modal">
+				<div class="modal-content" id="modal-content">
+
+				</div>
+			</div>
+
+			<a id="download-link" style="display: none;"></a>
+
+			<style>
+				input[type=button] {
+					font-size: 15px;
+					padding: 10px;
+					background: #EFEFEF;
+				}
+
+				.download-json {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+
+					padding-top: 50px;
+					padding-bottom: 50px;
+				}
+
+				.modal {
+					position: fixed;
+
+					top: 0px;
+					left: 0px;
+					width: 100%;
+					height: 100%;
+
+					z-index: 2;
+
+					display: none;
+					padding: 5%;
+
+					overflow: auto;
+
+					background: rgb(0, 0, 0);
+					background: rgb(0, 0, 0, 0.3);
+				}
+
+				.modal-content {
+					width: 85%;
+					height: 75%;
+
+					background: #FFFFFF;
+					color: #000000;
+
+					padding: 20px;
+
+					overflow: auto;
+					font-size: 20px;
+				}
+			</style>
+
+			<script>
+				var problem_name = document.getElementById("text-problem-name");
+				var problem_id = document.getElementById("text-problem-id");
+
+				problem_name.addEventListener("change", function() {
+					var id = problem_name.value.toLowerCase().replace(' ', '-');
+					problem_id.innerHTML = id;
+				});
+
+				function preview(id) {
+					var modal = document.getElementById("modal");
+					var user_text = document.getElementById("text-"+id).value;
+					var modal_content = document.getElementById("modal-content");
+
+					modal.style.display = "block";
+					modal_content.innerHTML = user_text;
+
+					MathJax.typeset();
+
+					window.onclick = function(event) {
+						if (event.target == modal) {
+							modal.style.display = "none";
+							modal_content.innerHTML = "";
+						}
+					}
+				}
+
+				function down_json() {
+					var problem_name = document.getElementById('text-problem-name').value;
+					var problem_id = document.getElementById('text-problem-id').innerHTML;
+					var number_files = document.getElementById('text-number-files').value;
+					var problem_statement = document.getElementById('text-problem-statement').value;
+					var input_format = document.getElementById('text-input-format').value;
+					var constraints = document.getElementById('text-constraints').value;
+					var output_format = document.getElementById('text-output-format').value;
+
+					var json_text = ""
+
+					json_text += '{\n'
+					
+					json_text += (`\t"id" : "${problem_id}",\n`);
+					json_text += (`\t"name" : "${problem_name}",\n`);
+					json_text += (`\t"number-files"  :"${number_files}",\n`);
+					json_text += (`\t"statement" : "${problem_statement}",\n`);
+					json_text += (`\t"input-format" : "${input_format}",\n`);
+					json_text += (`\t"constraints" : "${constraints}",\n`);
+					json_text += (`\t"output-format" : "${output_format}"\n`);
+
+					json_text += '}'
+
+					let blob = new Blob([json_text], {type:'text/plain'});
+					
+					var link = document.getElementById("download-link");
+					link.href = URL.createObjectURL(blob);
+					link.download = `${problem_id}.json`
+					link.click();
+				}
+			</script>
+		</div>
+	</body>
+</html>
