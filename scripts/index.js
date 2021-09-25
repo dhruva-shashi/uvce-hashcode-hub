@@ -14,15 +14,15 @@ function build_index() {
 				<div class = "card">
 					<div class = "card-header">
 						<div class = "title">
-							${data[i]["problem-name"]}
+							${data[i]["name"]}
 						</div>
 						<div class = "date">
-							${data[i]["date-added"]}
+							${data[i]["date"]}
 						</div>
 					</div>
 
 					<div class = "description">
-						${data[i]["problem-description"]}
+						${data[i]["description"]}
 					</div>
 
 					<div class = "button-container">

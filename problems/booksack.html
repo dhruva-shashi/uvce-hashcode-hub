@@ -5,7 +5,7 @@
 		<link href="../styles/problem.css" rel="stylesheet">
 		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-		<script id="eval.js"></script>
+		<script src="../scripts/problem.js"></script>
 	</head>
 
 	<body>
@@ -16,53 +16,10 @@
 		</div>
 
 		<div class="content" id="content">
-			<div class="problem-pane">
-				<div class="sub-header">
-					<div class="problem-title">
-						Booksack
-					</div>
-					<input type="button" value="Make Submission" id="open-modal">
-				</div>
-
-				<div class="problem-statement">
-					<p>You were assigned the task of shifting \(N\) books from the entrance of UVCE to the library. You are enthusiastic in performing the task and decide to carry as many books as possible. But you are also aware of the fact that you cannot carry any weight greater than \(W\) in your sack. The goal is to find \(K\) books whose sum of weights does not exceed \(W\) and whose sum of weights is maximum.</p>
-				</div>
-
-				<div class="specifications">
-					<div class="subhead">
-						Input Format
-					</div>
-
-					<ul>
-						<li>Each input data set is provided in a plain text file containing exclusively ASCII characters with lines terminated with a single '\n' character. When a single line contains multiple elements, they are separated by single spaces.</li>
-						<li>The first line of the data set contains two integers \(N\) and \(W\).</li>
-						<li>The second line consists of \(N\) integers \(a_1, a_2, a_3, ...., a_N\) in non-decreasing order.</li>
-					</ul>
-				</div>
-
-				<div class="specifications">
-					<div class="subhead">
-						Constraints
-					</div>
-
-					<ul>
-						<li>\(1 \le N \le 10^5\)</li>
-						<li>\(1 \le W \le 10^9\)</li>
-						<li>\(1 \le a_i \le W\)</li>
-					</ul>
-				</div>
-
-				<div class="specifications">
-					<div class="subhead">
-						Output Format
-					</div>
-
-					<ul>
-						<li>The output file should contain two lines.</li>
-						<li>The first line should contain an integer \(K, 0 \le K \le N,\) the number of books you decide to carry.</li>
-						<li>The second line should contain \(K\) integers, the indices of the books that you decide to carry.</li>
-					</ul>
-				</div>
+			<div class="problem-pane" id="problem-pane">
+				<script>
+					build_problem('booksack');
+				</script>
 
 				<div class="specifications">
 					<div class="subhead">
