@@ -46,13 +46,29 @@
 				</tr>
 				<tr>
 					<td>
+						Date
+					</td>
+					<td>
+						<input type="date" id="text-date">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Description
+					</td>
+					<td>
+						<input type="text" id="text-description">
+					</td>
+				</tr>
+				<tr>
+					<td>
 						Problem Statement
 					</td>
 					<td>
 						<textarea id="text-problem-statement" rows="10" cols="50"></textarea>
 					</td>
 					<td>
-						<input type="button" value="Preview" id="preview-problem-statement" onclick="preview(`problem-statement`)">
+						<input type="button" value="Preview" id="preview-problem-statement" onclick="preview(`problem-statement`, false)">
 					</td>
 				</tr>
 				<tr>
@@ -63,7 +79,7 @@
 						<textarea id="text-input-format" rows="10" cols="50"></textarea>
 					</td>
 					<td>
-						<input type="button" value="Preview" id="preview-input-format" onclick="preview(`input-format`)">
+						<input type="button" value="Preview" id="preview-input-format" onclick="preview(`input-format`, true)">
 					</td>
 				</tr>
 				<tr>
@@ -74,7 +90,7 @@
 						<textarea id="text-constraints" rows="10" cols="50"></textarea>
 					</td>
 					<td>
-						<input type="button" value="Preview" id="preview-constraints" onclick="preview(`constraints`)">
+						<input type="button" value="Preview" id="preview-constraints" onclick="preview(`constraints`, true)">
 					</td>
 				</tr>
 				<tr>
@@ -85,13 +101,14 @@
 						<textarea id="text-output-format" rows="10" cols="50"></textarea>
 					</td>
 					<td>
-						<input type="button" value="Preview" id="preview-output-format" onclick="preview(`output-format`)">
+						<input type="button" value="Preview" id="preview-output-format" onclick="preview(`output-format`, true)">
 					</td>
 				</tr>
 			</table>
 
 			<div class="download-json">
 				<input type="button" value="Download JSON file" id="download-json" onclick="down_json()">
+				<input type="button" value="Reset" class="button-reset" id="button-reset" onclick="reset()">
 			</div>
 			
 			<div class="modal" id="modal">
@@ -149,6 +166,10 @@
 					overflow: auto;
 					font-size: 20px;
 				}
+
+				.button-reset {
+					margin-left: 100px;
+				}
 			</style>
 
 			<script>
@@ -160,10 +181,25 @@
 					problem_id.innerHTML = id;
 				});
 
-				function preview(id) {
+				function reset() {
+					document.getElementById('text-problem-name').value = "";
+					document.getElementById('text-problem-id').innerHTML = "";
+					document.getElementById('text-number-files').value = "";
+					document.getElementById('text-problem-statement').value = "";
+					document.getElementById('text-input-format').value = "";
+					document.getElementById('text-constraints').value = "";
+					document.getElementById('text-output-format').value = "";
+				}
+
+				function preview(id, bullets) {
 					var modal = document.getElementById("modal");
 					var user_text = document.getElementById("text-"+id).value;
 					var modal_content = document.getElementById("modal-content");
+
+					if (bullets)
+						user_text = '<ul>\n<li>'+user_text.replace(/\n/g, '</li>\n<li>')+'\</li>\n</ul>';
+					else
+						user_text = '<p>\n'+user_text.replace(/\n/g, '</p>\n<p>')+'</p>';
 
 					modal.style.display = "block";
 					modal_content.innerHTML = user_text;
@@ -181,23 +217,68 @@
 				function down_json() {
 					var problem_name = document.getElementById('text-problem-name').value;
 					var problem_id = document.getElementById('text-problem-id').innerHTML;
+					var date = document.getElementById('text-date').value;
+					var description = document.getElementById('text-description').value;
 					var number_files = document.getElementById('text-number-files').value;
-					var problem_statement = document.getElementById('text-problem-statement').value;
-					var input_format = document.getElementById('text-input-format').value;
-					var constraints = document.getElementById('text-constraints').value;
-					var output_format = document.getElementById('text-output-format').value;
+					var problem_statement = document.getElementById('text-problem-statement').value.split('\n');
+					var input_format = document.getElementById('text-input-format').value.split('\n');
+					var constraints = document.getElementById('text-constraints').value.split('\n');
+					var output_format = document.getElementById('text-output-format').value.split('\n');
+
+					months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+
+					date = date.split('-')
+
+					var year = parseInt(date[0]).toString();
+					var month = months[parseInt(date[1])-1];
+					var date = parseInt(date[2]).toString();
+
+					var new_date = `${date} ${month} ${year}`
 
 					var json_text = ""
 
 					json_text += '{\n'
-					
-					json_text += (`\t"id" : "${problem_id}",\n`);
-					json_text += (`\t"name" : "${problem_name}",\n`);
-					json_text += (`\t"number-files" : "${number_files}",\n`);
-					json_text += (`\t"statement" : "${problem_statement}",\n`);
-					json_text += (`\t"input-format" : "${input_format}",\n`);
-					json_text += (`\t"constraints" : "${constraints}",\n`);
-					json_text += (`\t"output-format" : "${output_format}"\n`);
+					json_text += `\t"id" : "${problem_id}",\n`;
+					json_text += `\t"name" : "${problem_name}",\n`;
+					json_text += `\t"date" : "${new_date}",\n`;
+					json_text += `\t"description" : "${description}",\n`;
+					json_text += `\t"number-files" : "${number_files}",\n`;
+
+					json_text += `\t"statement" : [`;
+					for (var i = 0; i < problem_statement.length; i++) {
+						json_text += `"${problem_statement[i].replace(/\\/g, '\\\\')}"`;
+						
+						if (i != problem_statement.length-1)
+							json_text += ', ';
+					}
+					json_text += '],\n';
+
+					json_text += `\t"input-format" : [`;
+					for (var i = 0; i < input_format.length; i++) {
+						json_text += `"${input_format[i].replace(/\\/g, '\\\\')}"`;
+						
+						if (i != input_format.length-1)
+							json_text += ', ';
+					}
+					json_text += '],\n';
+
+					json_text += `\t"constraints" : [`;
+					for (var i = 0; i < constraints.length; i++) {
+						json_text += `"${constraints[i].replace(/\\/g, '\\\\')}"`;
+						
+						if (i != constraints.length-1)
+							json_text += ', ';
+					}
+					json_text += '],\n';
+
+					json_text += `\t"output-format" : [`;
+					for (var i = 0; i < output_format.length; i++) {
+						json_text += `"${output_format[i].replace(/\\/g, '\\\\')}"`;
+						
+						if (i != output_format.length-1)
+							json_text += ', ';
+					}
+					json_text += ']\n';
 
 					json_text += '}'
 
