@@ -1,6 +1,6 @@
 function build_index() {
 	var xmlHttp = new XMLHttpRequest();
-	xmlHttp.open("GET", 'https://dhruva-shashi.github.io/uvce-hashcode-hub/data.json', false);
+	xmlHttp.open("GET", 'https://dhruva-shashi.github.io/uvce-hashcode-hub/json-files/index.json', false);
 	xmlHttp.send(null);
 
 	var data = JSON.parse(xmlHttp.responseText);
