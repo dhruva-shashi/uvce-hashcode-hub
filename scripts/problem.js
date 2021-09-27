@@ -67,7 +67,7 @@ function build_problem(id) {
 		</div>`;
 	for (i = 0; i < parseInt(data['number-files']); i++)
 		web_content += `
-		<a href="../input-files/${id}/input-${String.fromCharCode(97+i)}.txt" download="input-a.txt">
+		<a href="../input-files/${id}/input-${String.fromCharCode(97+i)}.txt" download="input-${String.fromCharCode(97+i)}.txt">
 			<div class="input-file">
 				<img src="../images/download-icon.png">
 				Input ${String.fromCharCode(65+i)}
