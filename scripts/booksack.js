@@ -11,6 +11,7 @@ function evaluate(ch) {
     var file_input = document.getElementById(`input-file-${ch}`);
     var res = document.getElementById(`last-submission-${ch}`);
     var file_name = document.getElementById(`file-name-${ch}`);
+    var best = document.getElementById(`best-score-${ch}`);
 
     var temp;
 
@@ -65,6 +66,9 @@ function evaluate(ch) {
 
         if (overflow || duplicate || wrong_index)
             final_score = 0;
+
+        if (final_score > parseInt(best.innerHTML))
+            best.innerHTML = final_score;
 
         res.innerHTML = final_score;
         file_input.value = null;
