@@ -115,10 +115,10 @@ function build_problem(id) {
 			<td>
 				${String.fromCharCode(65+i)}
 			</td>
-			<td>
+			<td id="last-submission-${String.fromCharCode(97+i)}">
 				0
 			</td>
-			<td>
+			<td id="best-score-${String.fromCharCode(97+i)}">
 				0
 			</td>
 		</tr>`;
@@ -136,6 +136,31 @@ function build_problem(id) {
 	var modal = document.getElementById("modal");
 	var open_modal = document.getElementById("open-modal");
 
+	/*
+	if (document.cookie == '') {
+		var s = '{';
+
+		for (i = 0; i < parseInt(data['number-files']); i++) {
+			s += `"${String.fromCharCode(97+i)}": 0`;
+
+			if (i < parseInt(data['number-files'])-1)
+				s += ',';
+		}
+
+		s += '};';
+
+		s = 'score='+s;
+		
+		document.cookie = s;
+
+		alert(s);
+	}
+
+	alert(document.cookie == '');
+
+	alert(document.cookie);
+	*/
+
 	open_modal.addEventListener("click", function() {
 		modal.style.display = "block";
 	});
@@ -145,6 +170,16 @@ function build_problem(id) {
 			modal.style.display = "none";
 		}
 	}
+
+	var file_submit = document.getElementById('submit-all');
+
+	file_submit.addEventListener("click", function() {
+		for (i = 0; i < parseInt(data['number-files']); i++) {
+			const file_input = document.getElementById(`input-file-${String.fromCharCode(97+i)}`);
+			if (file_input.files.length > 0)
+				evaluate(`${String.fromCharCode(97+i)}`);
+		}
+	});
 
 	for (i = 0; i < parseInt(data['number-files']); i++) {
 		const substitute_button = document.getElementById(`submit-${String.fromCharCode(97+i)}`);
