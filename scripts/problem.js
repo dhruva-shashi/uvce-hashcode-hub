@@ -198,6 +198,7 @@ function build_problem(id) {
 
 	function readCookie() {
 		var s = document.cookie.split('=')[1].split(' ');
+		alert(s);
 
 		for (i = 0; i < parseInt(data['number-files']); i++) {
 			const best = document.getElementById(`best-score-${String.fromCharCode(97+i)}`);
