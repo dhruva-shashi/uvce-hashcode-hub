@@ -164,8 +164,6 @@ function build_problem(id) {
 	function updateCookie() {
 		var s = '';
 
-		alert('updating');
-
 		var total = document.getElementById('best-total');
 		var res = 0;
 
@@ -182,18 +180,25 @@ function build_problem(id) {
 
 	function readCookie() {
 		var s = document.cookie.split('=')[1].split(' ');
+		var res = 0;
 
 		for (i = 0; i < parseInt(data['number-files']); i++) {
 			const best = document.getElementById(`best-score-${String.fromCharCode(97+i)}`);
 			const num = s[i];
 			best.innerHTML = num;
+			res += parseInt(num);
 		}
+
+		var total = document.getElementById('best-total');
+		total.innerHTML = res;
 	}
 
 	if (document.cookie == '')
 		updateCookie();
 	else
 		readCookie();
+
+	readCookie();
 
 	for (i = 0; i < parseInt(data['number-files']); i++) {
 		const best = document.getElementById(`best-score-${String.fromCharCode(97+i)}`);
