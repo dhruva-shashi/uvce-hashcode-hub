@@ -164,6 +164,8 @@ function build_problem(id) {
 	function updateCookie() {
 		var s = '';
 
+		alert('updating');
+
 		var total = document.getElementById('best-total');
 		var res = 0;
 
@@ -177,6 +179,21 @@ function build_problem(id) {
 		total.innerHTML = res;
 		document.cookie = 'score='+s;
 	}
+
+	function readCookie() {
+		var s = document.cookie.split('=')[1].split(' ');
+
+		for (i = 0; i < parseInt(data['number-files']); i++) {
+			const best = document.getElementById(`best-score-${String.fromCharCode(97+i)}`);
+			const num = s[i];
+			best.innerHTML = num;
+		}
+	}
+
+	if (document.cookie == '')
+		updateCookie();
+	else
+		readCookie();
 
 	for (i = 0; i < parseInt(data['number-files']); i++) {
 		const best = document.getElementById(`best-score-${String.fromCharCode(97+i)}`);
@@ -195,23 +212,6 @@ function build_problem(id) {
 			document.getElementById('last-total').innerHTML = res;
 		});
 	}
-
-	function readCookie() {
-		const s = document.cookie.split('=')[1].split(' ');
-		alert(s);
-
-		for (i = 0; i < parseInt(data['number-files']); i++) {
-			const best = document.getElementById(`best-score-${String.fromCharCode(97+i)}`);
-			best.innerHTML = s[i];
-
-			alert(s[i]);
-		}
-	}
-
-	if (document.cookie == '')
-		updateCookie();
-	else
-		readCookie();
 
 	file_submit.addEventListener("click", function() {
 		total = 0;
