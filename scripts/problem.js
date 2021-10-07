@@ -153,7 +153,7 @@ function build_problem(id) {
 
 		for (i = 0; i < parseInt(data['number-files']); i++) {
 			const best = document.getElementById(`best-score-${String.fromCharCode(97+i)}`);
-			s += best.innerHTML;
+			s += parseInt(best.innerHTML);
 			s += ' ';
 		}
 
