@@ -174,6 +174,8 @@ function build_problem(id) {
 	else
 		readCookie();
 
+	alert(document.cookie);
+
 	file_submit.addEventListener("click", function() {
 		for (i = 0; i < parseInt(data['number-files']); i++) {
 			const file_input = document.getElementById(`input-file-${String.fromCharCode(97+i)}`);
