@@ -115,7 +115,7 @@ function build_problem(id) {
 			<td>
 				${String.fromCharCode(65+i)}
 			</td>
-			<td id="last-submission-${String.fromCharCode(97+i)}">
+			<td id="last-score-${String.fromCharCode(97+i)}">
 				0
 			</td>
 			<td id="best-score-${String.fromCharCode(97+i)}">
@@ -123,6 +123,19 @@ function build_problem(id) {
 			</td>
 		</tr>`;
 	}
+
+	web_content += `
+	<tr>
+		<td>
+			Total
+		</td>
+		<td id="last-total">
+			0
+		</td>
+		<td id="best-total">
+			0
+		</td>
+	</tr>`;
 
 	web_content += `
 					</table>
@@ -151,15 +164,36 @@ function build_problem(id) {
 	function updateCookie() {
 		var s = '';
 
+		var total = document.getElementById('best-total');
+		var res = 0;
+
 		for (i = 0; i < parseInt(data['number-files']); i++) {
 			const best = document.getElementById(`best-score-${String.fromCharCode(97+i)}`);
+			res += parseInt(best.innerHTML);
 			s += parseInt(best.innerHTML);
 			s += ' ';
 		}
 
+		total.innerHTML = res;
 		document.cookie = 'score='+s;
+	}
 
-		alert(s);
+	for (i = 0; i < parseInt(data['number-files']); i++) {
+		const best = document.getElementById(`best-score-${String.fromCharCode(97+i)}`);
+		const last = document.getElementById(`last-score-${String.fromCharCode(97+i)}`);
+
+		best.addEventListener("DOMSubtreeModified", function() {
+			updateCookie();
+		});
+
+		last.addEventListener("DOMSubtreeModified", function() {
+			var res = 0;
+
+			for (j = 0; j < parseInt(data['number-files']); j++)
+				res += parseInt(document.getElementById(`last-score-${String.fromCharCode(97+j)}`).innerHTML);
+
+			document.getElementById('last-total').innerHTML = res;
+		});
 	}
 
 	function readCookie() {
@@ -177,12 +211,7 @@ function build_problem(id) {
 		readCookie();
 
 	file_submit.addEventListener("click", function() {
-		var arr = document.cookie.split('=')[1].split(' ');
-
-		for (i = 0; i < parseInt(data['number-files']); i++)
-			arr[i] = parseInt(arr[i]);
-
-		alert(arr);
+		total = 0;
 
 		for (i = 0; i < parseInt(data['number-files']); i++) {
 			const file_input = document.getElementById(`input-file-${String.fromCharCode(97+i)}`);
@@ -196,7 +225,7 @@ function build_problem(id) {
 			
 				const reader = new FileReader();
 			
-				const res = document.getElementById(`last-submission-${String.fromCharCode(97+i)}`);
+				const res = document.getElementById(`last-score-${String.fromCharCode(97+i)}`);
 				const file_name = document.getElementById(`file-name-${String.fromCharCode(97+i)}`);
 				const best = document.getElementById(`best-score-${String.fromCharCode(97+i)}`);
 			
@@ -204,11 +233,9 @@ function build_problem(id) {
 					const output = reader.result.split(/\n/);
 			
 					const final_score = evaluate(input, output);
-			
-					if (final_score > parseInt(best.innerHTML)) {
+
+					if (final_score > parseInt(best.innerHTML))
 						best.innerHTML = final_score;
-						arr[i] = final_score;
-					}
 			
 					res.innerHTML = final_score;
 					file_input.value = null;
@@ -218,17 +245,6 @@ function build_problem(id) {
 				reader.readAsText(file_input.files[0]);
 			}
 		}
-
-		s = ''
-
-		for (i = 0; i < parseInt(data['number-files']); i++) {
-			s += arr[i];
-			s += ' ';
-		}
-
-		document.cookie = 'score='+s;
-
-		alert(document.cookie);
 	});
 
 	for (i = 0; i < parseInt(data['number-files']); i++) {
