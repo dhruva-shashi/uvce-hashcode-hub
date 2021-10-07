@@ -155,11 +155,11 @@ function build_problem(id) {
 			const best = document.getElementById(`best-score-${String.fromCharCode(97+i)}`);
 			s += parseInt(best.innerHTML);
 			s += ' ';
-
-			alert(parseInt(best.innerHTML));
 		}
 
 		document.cookie = 'score='+s;
+
+		alert(s);
 	}
 
 	function readCookie() {
@@ -175,8 +175,6 @@ function build_problem(id) {
 		updateCookie();
 	else
 		readCookie();
-
-	alert(document.cookie);
 
 	file_submit.addEventListener("click", function() {
 		for (i = 0; i < parseInt(data['number-files']); i++) {
