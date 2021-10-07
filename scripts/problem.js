@@ -155,6 +155,8 @@ function build_problem(id) {
 			const best = document.getElementById(`best-score-${String.fromCharCode(97+i)}`);
 			s += parseInt(best.innerHTML);
 			s += ' ';
+
+			alert(parseInt(best.innerHTML));
 		}
 
 		document.cookie = 'score='+s;
