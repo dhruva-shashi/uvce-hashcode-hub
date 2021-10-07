@@ -198,8 +198,6 @@ function build_problem(id) {
 	else
 		readCookie();
 
-	readCookie();
-
 	for (i = 0; i < parseInt(data['number-files']); i++) {
 		const best = document.getElementById(`best-score-${String.fromCharCode(97+i)}`);
 		const last = document.getElementById(`last-score-${String.fromCharCode(97+i)}`);
