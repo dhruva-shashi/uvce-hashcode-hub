@@ -176,11 +176,13 @@ function build_problem(id) {
 	else
 		readCookie();
 
-	function validate() {
+	file_submit.addEventListener("click", function() {
 		var arr = document.cookie.split('=')[1].split(' ');
 
 		for (i = 0; i < parseInt(data['number-files']); i++)
 			arr[i] = parseInt(arr[i]);
+
+		alert(arr);
 
 		for (i = 0; i < parseInt(data['number-files']); i++) {
 			const file_input = document.getElementById(`input-file-${String.fromCharCode(97+i)}`);
@@ -227,10 +229,6 @@ function build_problem(id) {
 		document.cookie = 'score='+s;
 
 		alert(document.cookie);
-	}
-
-	file_submit.addEventListener("click", function() {
-		validate();
 	});
 
 	for (i = 0; i < parseInt(data['number-files']); i++) {
