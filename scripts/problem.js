@@ -136,31 +136,6 @@ function build_problem(id) {
 	var modal = document.getElementById("modal");
 	var open_modal = document.getElementById("open-modal");
 
-	/*
-	if (document.cookie == '') {
-		var s = '{';
-
-		for (i = 0; i < parseInt(data['number-files']); i++) {
-			s += `"${String.fromCharCode(97+i)}": 0`;
-
-			if (i < parseInt(data['number-files'])-1)
-				s += ',';
-		}
-
-		s += '};';
-
-		s = 'score='+s;
-		
-		document.cookie = s;
-
-		alert(s);
-	}
-
-	alert(document.cookie == '');
-
-	alert(document.cookie);
-	*/
-
 	open_modal.addEventListener("click", function() {
 		modal.style.display = "block";
 	});
@@ -173,12 +148,67 @@ function build_problem(id) {
 
 	var file_submit = document.getElementById('submit-all');
 
+	function updateCookie() {
+		var s = '';
+
+		for (i = 0; i < parseInt(data['number-files']); i++) {
+			const best = document.getElementById(`best-score-${String.fromCharCode(97+i)}`);
+			s += best.innerHTML;
+			s += ' ';
+		}
+
+		document.cookie = 'score='+s;
+	}
+
+	function readCookie() {
+		var s = document.cookie.split('=')[1].split(' ');
+
+		for (i = 0; i < parseInt(data['number-files']); i++) {
+			const best = document.getElementById(`best-score-${String.fromCharCode(97+i)}`);
+			best.innerHTML = s[i];
+		}
+	}
+
+	if (document.cookie == '')
+		updateCookie();
+	else
+		readCookie();
+
 	file_submit.addEventListener("click", function() {
 		for (i = 0; i < parseInt(data['number-files']); i++) {
 			const file_input = document.getElementById(`input-file-${String.fromCharCode(97+i)}`);
-			if (file_input.files.length > 0)
-				evaluate(`${String.fromCharCode(97+i)}`);
+
+			if (file_input.files.length > 0) {
+				var xmlHttp = new XMLHttpRequest();
+				xmlHttp.open("GET", `https://dhruva-shashi.github.io/uvce-hashcode-hub/input-files/${data['id']}/input-${String.fromCharCode(97+i)}.txt`, false);
+				xmlHttp.send(null);
+			
+				const input = xmlHttp.responseText.split(/\n/);
+			
+				const reader = new FileReader();
+			
+				const res = document.getElementById(`last-submission-${String.fromCharCode(97+i)}`);
+				const file_name = document.getElementById(`file-name-${String.fromCharCode(97+i)}`);
+				const best = document.getElementById(`best-score-${String.fromCharCode(97+i)}`);
+			
+				reader.onload = function() {
+					const output = reader.result.split(/\n/);
+			
+					const final_score = evaluate(input, output);
+			
+					if (final_score > parseInt(best.innerHTML))
+						best.innerHTML = final_score;
+			
+					res.innerHTML = final_score;
+					file_input.value = null;
+					file_name.innerHTML = 'Upload file';
+				}
+			
+				reader.readAsText(file_input.files[0]);
+			}
 		}
+
+		updateCookie();
 	});
 
 	for (i = 0; i < parseInt(data['number-files']); i++) {
