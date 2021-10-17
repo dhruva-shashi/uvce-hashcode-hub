@@ -1,5 +1,5 @@
 # UVCE Hash Code Hub
-Website to practice optimization problems, which are similar to the ones that appear in Google Hash Code. The website was built to help students who are part of UVCE Hash Code Hub. However, the website is open to students from other colleges and hubs as well and they can make use of the website for practice.
+The website helps participants of Google Hash Code to solve optimization problems, which are similar to the ones that appear in the competition and get familiar to the format in which Google Hash Code is conducted. The website was built to help students who are part of UVCE Hash Code Hub. However, the website is open to students from other colleges and hubs as well and they can make use of the website for practising optimization problems.
 
 Click [here](https://dhruva-shashi.github.io/uvce-hashcode-hub/) to visit the website.
 
