@@ -166,7 +166,7 @@ function build_problem(id) {
 
 		if (document.cookie != '')
 			scores = JSON.parse(document.cookie.split('=')[1]);
-			
+
 		var s = '';
 
 		var total = document.getElementById('best-total');
@@ -180,6 +180,9 @@ function build_problem(id) {
 		}
 
 		scores[id] = s;
+
+		alert(JSON.stringify(scores));
+		alert(scores[id].split(' '));
 
 		total.innerHTML = res;
 		document.cookie = 'score='+scores;
@@ -207,7 +210,9 @@ function build_problem(id) {
 			return true;
 	}
 
-	if (document.cookie == '' || check_me())
+	if (document.cookie == '')
+		updateCookie();
+	else if (check_me())
 		updateCookie();
 	else
 		readCookie();
