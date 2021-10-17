@@ -3,6 +3,8 @@ Website to practice optimization problems, which are similar to the ones that ap
 
 Click [here](https://dhruva-shashi.github.io/uvce-hashcode-hub/) to visit website.
 
+Click [here](https://codingcompetitions.withgoogle.com/hashcode) to know more about Google Hash Code.
+
 ## General Instructions
 
 - Each problem is an optimization problem.
