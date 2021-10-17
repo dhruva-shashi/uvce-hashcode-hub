@@ -204,6 +204,7 @@ function build_problem(id) {
 	}
 
 	function check_me() {
+		alert(document.cookie);
 		var scores = JSON.parse(document.cookie.split('=')[1]);
 
 		if (id in scores)
