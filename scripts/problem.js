@@ -191,7 +191,7 @@ function build_problem(id) {
 	}
 
 	function readCookie() {
-		var s = JSON.parse(document.cookie.split('=')[1])[id];
+		var s = JSON.parse(document.cookie.split('=')[1])[id].split(' ');
 		var res = 0;
 
 		for (i = 0; i < parseInt(data['number-files']); i++) {
