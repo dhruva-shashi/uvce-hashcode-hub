@@ -162,6 +162,11 @@ function build_problem(id) {
 	var file_submit = document.getElementById('submit-all');
 
 	function updateCookie() {
+		var scores = {};
+
+		if (document.cookie != '')
+			scores = JSON.parse(document.cookie.split('=')[1]);
+			
 		var s = '';
 
 		var total = document.getElementById('best-total');
@@ -174,12 +179,14 @@ function build_problem(id) {
 			s += ' ';
 		}
 
+		scores[id] = s;
+
 		total.innerHTML = res;
-		document.cookie = 'score='+s;
+		document.cookie = 'score='+scores;
 	}
 
 	function readCookie() {
-		var s = document.cookie.split('=')[1].split(' ');
+		var s = JSON.parse(document.cookie.split('=')[1])[id];
 		var res = 0;
 
 		for (i = 0; i < parseInt(data['number-files']); i++) {
@@ -193,7 +200,14 @@ function build_problem(id) {
 		total.innerHTML = res;
 	}
 
-	if (document.cookie == '')
+	function check_me() {
+		var scores = JSON.parse(document.cookie.split('=')[1]);
+
+		if (id in scores)
+			return true;
+	}
+
+	if (document.cookie == '' || check_me())
 		updateCookie();
 	else
 		readCookie();
