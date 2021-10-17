@@ -12,4 +12,4 @@ Click [here](https://codingcompetitions.withgoogle.com/hashcode) to know more ab
 - The input files should be downloaded. Each input data set is provided in a plain text file containing exclusively ASCII characters with lines terminated with a single '\n' character. When a single line contains multiple elements, they are separated by single spaces.
 - The output file must be a text file, containing exclusively ASCII characters with lines terminated with a single '\n' character. When a single line contains multiple elements, they must be separated by single spaces.
 - The best score among all submissions is stored in cookies.
-- Output for a each input be submitted individually.
+- Output for each input can be submitted individually.
