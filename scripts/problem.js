@@ -210,7 +210,9 @@ function build_problem(id) {
 		var scores = JSON.parse(document.cookie.split('=')[1]);
 
 		if (id in scores)
-			return true;
+			return false;
+
+		return true;
 	}
 
 	if (document.cookie == '')
