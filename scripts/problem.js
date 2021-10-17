@@ -164,8 +164,6 @@ function build_problem(id) {
 	function updateCookie() {
 		var scores = {};
 
-		alert(document.cookie);
-
 		if (document.cookie != '')
 			scores = JSON.parse(document.cookie.split('=')[1]);
 
@@ -182,9 +180,6 @@ function build_problem(id) {
 		}
 
 		scores[id] = s;
-
-		alert(JSON.stringify(scores));
-		alert(scores[id].split(' '));
 
 		total.innerHTML = res;
 		document.cookie = 'score='+JSON.stringify(scores);
@@ -206,7 +201,6 @@ function build_problem(id) {
 	}
 
 	function check_me() {
-		alert(document.cookie);
 		var scores = JSON.parse(document.cookie.split('=')[1]);
 
 		if (id in scores)
