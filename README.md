@@ -13,3 +13,4 @@ Click [here](https://codingcompetitions.withgoogle.com/hashcode) to know more ab
 - The output file must be a text file, containing exclusively ASCII characters with lines terminated with a single '\n' character. When a single line contains multiple elements, they must be separated by single spaces.
 - The best score among all submissions is stored in cookies.
 - Output for each input can be submitted individually.
+- Any external libraries or tools can be used to solve the problems. Google Hash Code does not impose any such restrictions.
