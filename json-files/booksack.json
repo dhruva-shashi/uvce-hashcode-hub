@@ -8,8 +8,8 @@
 	"input-format" : ["Each input data set is provided in a plain text file containing exclusively ASCII characters with lines terminated with a single '\\n' character. When a single line contains multiple elements, they are separated by single spaces.", "The first line of the data set contains two integers \\(W\\) and \\(N\\).", "The second line consists of \\(N\\) integers \\(a_1, a_2, a_3, ...., a_N\\) in non-decreasing order."],
 	"constraints" : ["\\(1 \\le N \\le 10^5\\)", "\\(1 \\le W \\le 10^9\\)", "\\(1 \\le a_i \\le W\\)"],
 	"output-format" : ["The output file should contain two lines.", "The first line should contain an integer \\(K, 0 \\le K \\le N,\\) the number of books you decide to carry.", "The second line should contain \\(K\\) integers, the indices of the books that you decide to carry."],
-	"scoring": ["The number of points awarded is equal to the total weight of the books that are selected.", "If the weight of the books exceed \\(W\\), no points are awarded and the result of that submission will be \\(0\\)."],
+	"scoring": ["The number of points awarded for each input file is equal to the total weight of the books that are selected.", "If the weight of the books exceed \\(W\\), no points are awarded for that test case.", "If the indices do no abide by the constraints, no points will be awarded for that test case."],
 	"input-sample": ["17 4", "2 5 6 8"],
-	"output-sample": ["3", "0 2 3"],
-	"scoring-sample": ["The sum of weights of books is \\(17\\)"]
+	"output-sample": ["3", "1 3 4"],
+	"scoring-sample": ["The sum of weights of books is \\(2+6+8 = 17\\)"]
 }
