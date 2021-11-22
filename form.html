@@ -8,7 +8,6 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-		<script src="script.js"></script>
 	</head>
 
 	<body>
@@ -104,6 +103,50 @@
 						<input type="button" value="Preview" id="preview-output-format" onclick="preview(`output-format`, true)">
 					</td>
 				</tr>
+				<tr>
+					<td>
+						Scoring
+					</td>
+					<td>
+						<textarea id="text-scoring" rows="10" cols="50"></textarea>
+					</td>
+					<td>
+						<input type="button" value="Preview" id="preview-scoring" onclick="preview(`scoring`, true)">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Sample Input
+					</td>
+					<td>
+						<textarea id="text-sample-input" rows="10" cols="50"></textarea>
+					</td>
+					<td>
+						<input type="button" value="Preview" id="preview-sample-input" onclick="preview(`sample-input`, true)">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Sample Output
+					</td>
+					<td>
+						<textarea id="text-sample-output" rows="10" cols="50"></textarea>
+					</td>
+					<td>
+						<input type="button" value="Preview" id="preview-sample-output" onclick="preview(`sample-output`, true)">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						Sample Explanation
+					</td>
+					<td>
+						<textarea id="text-sample-explanation" rows="10" cols="50"></textarea>
+					</td>
+					<td>
+						<input type="button" value="Preview" id="preview-sample-explanation" onclick="preview(`sample-explanation`, true)">
+					</td>
+				</tr>
 			</table>
 
 			<div class="download-json">
@@ -190,6 +233,10 @@
 					document.getElementById('text-constraints').value = "";
 					document.getElementById('text-output-format').value = "";
 					document.getElementById('text-description').value = "";
+					document.getElementById('text-scoring').value = "";
+					document.getElementById('text-sample-input').value = "";
+					document.getElementById('text-sample-output').value = "";
+					document.getElementById('text-sample-explanation').value = "";
 				}
 
 				function preview(id, bullets) {
@@ -225,6 +272,10 @@
 					var input_format = document.getElementById('text-input-format').value.split('\n');
 					var constraints = document.getElementById('text-constraints').value.split('\n');
 					var output_format = document.getElementById('text-output-format').value.split('\n');
+					var scoring = document.getElementById('text-scoring').value.split('\n');
+					var sample_input = document.getElementById('text-sample-input').value.split('\n');
+					var sample_output = document.getElementById('text-sample-output').value.split('\n');
+					var sample_explanation = document.getElementById('text-sample-explanation').value.split('\n');
 
 					months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
@@ -277,6 +328,42 @@
 						json_text += `"${output_format[i].replace(/\\/g, '\\\\')}"`;
 						
 						if (i != output_format.length-1)
+							json_text += ', ';
+					}
+					json_text += ']\n';
+
+					json_text += `\t"scoring" : [`;
+					for (var i = 0; i < scoring.length; i++) {
+						json_text += `"${scoring[i].replace(/\\/g, '\\\\')}"`;
+						
+						if (i != scoring.length-1)
+							json_text += ', ';
+					}
+					json_text += ']\n';
+
+					json_text += `\t"input-sample" : [`;
+					for (var i = 0; i < sample_input.length; i++) {
+						json_text += `"${sample_input[i].replace(/\\/g, '\\\\')}"`;
+						
+						if (i != sample_input.length-1)
+							json_text += ', ';
+					}
+					json_text += ']\n';
+
+					json_text += `\t"output-sample" : [`;
+					for (var i = 0; i < sample_output.length; i++) {
+						json_text += `"${sample_output[i].replace(/\\/g, '\\\\')}"`;
+						
+						if (i != sample_output.length-1)
+							json_text += ', ';
+					}
+					json_text += ']\n';
+
+					json_text += `\t"scoring-sample" : [`;
+					for (var i = 0; i < sample_explanation.length; i++) {
+						json_text += `"${sample_explanation[i].replace(/\\/g, '\\\\')}"`;
+						
+						if (i != sample_explanation.length-1)
 							json_text += ', ';
 					}
 					json_text += ']\n';
