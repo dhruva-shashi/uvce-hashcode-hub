@@ -54,7 +54,9 @@ body {
 }
 
 .content {
-	margin: 10%;
+	margin-left: 10%;
+	margin-right: 10%;
+	margin-bottom: 50px;
 	margin-top: 80px;
 }
 
@@ -280,4 +282,33 @@ tr, td, th {
 .explanation {
 	margin-top: 20px;
 	margin-bottom: 20px;
+}
+
+.creator-info {
+	text-align: center;
+
+	margin: 10px;
+}
+
+.creator-phone {
+	text-align: center;
+
+	margin: 10px;
+}
+
+.creator-links {
+	display: flex;
+	justify-content: center;
+}
+
+.creator-links a {
+	margin: 10px;
+}
+
+.creator-links img {
+	height: 50px;
+}
+
+.footer {
+	margin-bottom: 50px;
 }

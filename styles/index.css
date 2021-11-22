@@ -45,7 +45,8 @@ body {
 }
 
 .content {
-	margin: 10%;
+	margin-left: 10%;
+	margin-right: 10%;
 	margin-top: 150px;
 }
 
@@ -114,4 +115,34 @@ input[type=button]:hover {
 
 .date {
 	font-size: 20px;
+}
+
+.footer {
+	display: block;
+	align-items: center;
+}
+
+.creator-info {
+	text-align: center;
+
+	margin: 10px;
+}
+
+.creator-phone {
+	text-align: center;
+
+	margin: 10px;
+}
+
+.creator-links {
+	display: flex;
+	justify-content: center;
+}
+
+.creator-links a {
+	margin: 10px;
+}
+
+.footer {
+	margin-bottom: 50px;
 }
