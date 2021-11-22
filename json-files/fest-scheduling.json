@@ -7,5 +7,9 @@
 	"statement" : ["A college fest is divided into \\(N\\) time slots and \\(M\\) events take place in each time slot. Overall, \\(N \\times M\\) events take place and each event consists of \\(K\\) description tags. The tags are denoted by positive integers.", "The uniqueness of a time slot is the number of unique tags which occurs across all the events in that time slot.", "You must schedule the events in such a way that the sum of uniqueness of events in each time slot is maximum. In other words, the events which take place in the same time slot must be less similar. Note that each event can be organized only once."],
 	"input-format" : ["Each input data set is provided in a plain text file containing exclusively ASCII characters with lines terminated with a single '\\n' character. When a single line contains multiple elements, they are separated by single spaces.", "The first line of each test case consists of three integers, \\(N, M\\) and \\(K\\), where \\(N\\) is the number of time slots, \\(M\\) is the number of events in each time slot and \\(K\\) is the number of description tags for each event.", "The next \\(N \\times M\\) lines consists of  positive integers each, the description tags of the events. The \\(K\\) integers in the \\(i^{th}\\) line are the description tags of the \\(i^{th}\\) event"],
 	"constraints" : ["\\(1 \\le N \\le 10^3\\)", "\\(1 \\le M \\le 10^3\\)", "\\(1 \\le K \\le 10^3\\)", "\\(1 \\le d_i \\le N \\times M \\times K\\)", "It is guaranteed that \\((N \\times M \\times K)\\) \\(\\le 10^6\\)"],
-	"output-format" : ["The output file must contain \\(N\\) lines", "Each line should consist of \\(M\\) integers", "The \\(M\\) integers in the \\(i^{th}\\) line are the indices of the events which are scheduled to take place in the \\(i^{th}\\) time slot."]
+	"output-format" : ["The output file must contain \\(N\\) lines", "Each line should consist of \\(M\\) integers", "The \\(M\\) integers in the \\(i^{th}\\) line are the indices of the events which are scheduled to take place in the \\(i^{th}\\) time slot."],
+	"scoring": [],
+	"input-sample": [],
+	"output-sample": [],
+	"scoring-sample": []
 }

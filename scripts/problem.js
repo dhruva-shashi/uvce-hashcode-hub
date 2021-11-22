@@ -11,6 +11,11 @@ function build_problem(id) {
 
 	var i;
 
+	var scoring = ["The number of points awarded is equal to the total weight of the books that are selected.", "If the weight of the books exceed \\(W\\), no points are awarded and the result of that submission will be \\(0\\)."];
+	var input_sample = ["17 4", "2 5 6 8"];
+	var output_sample = ["3", "0 2 3"];
+	var scoring_sample = ["The sum of weights of books is \\(2+6+8 = 16\\)"]
+
 	web_content += `
 	<div class="sub-header">
 		<div class="problem-title">
@@ -59,6 +64,53 @@ function build_problem(id) {
 		web_content += `<li>${data['output-format'][i]}</li>`;
 	web_content += `</ul>
 	</div>`;
+
+	web_content += `
+	<div class="specifications">
+		<div class="subhead">
+			Scoring
+		</div>
+
+		<ul>`;
+	for (i = 0; i < scoring.length; i++)
+		web_content += `<li>${scoring[i]}</li>`;
+	web_content += `</ul>
+	</div>`;
+
+	web_content += `
+	<div class="specifications">
+		<div class="subhead">
+			Sample Input
+		</div>
+
+		<div class="code"><code>`;
+	for (i = 0; i < input_sample.length; i++)
+		web_content += `${input_sample[i]}\n`;
+	web_content += `</code></div>
+	</div>`;
+
+	web_content += `
+	<div class="specifications">
+		<div class="subhead">
+			Sample Output
+		</div>
+
+		<div class="code"><code>`;
+	for (i = 0; i < output_sample.length; i++)
+		web_content += `${output_sample[i]}\n`;
+		web_content += `</code></div>
+		</div>`;
+
+	web_content += `
+	<div class="specifications">
+		<div class="subhead">
+			Sample Explanation
+		</div>
+
+		<div class="explanation">`;
+	for (i = 0; i < scoring_sample.length; i++)
+		web_content += `${scoring_sample[i]}\n`;
+		web_content += `</div> </div>`;
 
 	web_content += `
 	<div class="specifications">

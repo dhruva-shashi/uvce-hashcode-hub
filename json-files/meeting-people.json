@@ -7,5 +7,9 @@
 	"statement" : ["You are a volunteer and you are given the task of informing students about the events going on in UVCE. There are \\(N\\) groups in the college with IDs \\(i, 1 \\le i \\le N\\). In the \\(i^{th}\\) group, there are \\(a_i\\) members and they stay in the premises for \\(b_i\\) seconds. After \\(b_i\\) seconds, the members of the group leave. As a volunteer, you have to meet certain groups before their waiting time and make sure you meet as many students as possible.", "All the groups assemble at the \\(0^{th}\\) second. To inform one group, you will take exacly \\(1\\) second of time. It is not compulsory to visit all the groups. You can meet a group only if they have not left, i.e, if their waiting time has not been exhausted."],
 	"input-format" : ["Each input data set is provided in a plain text file containing exclusively ASCII characters with lines terminated with a single '\\n' character. When a single line contains multiple elements, they are separated by single spaces.", "The first line of the data set contains an integer \\(N\\).", "The second line consists of \\(N\\) integers \\(a_1, a_2, a_3, ...., a_N\\), the waiting time of each group.", "The third line consists of \\(N\\) integers \\(b_1, b_2, b_3, ...., b_N\\), the number of people in each group."],
 	"constraints" : ["\\(1 \\le N \\le 10^5\\)", "\\(1 \\le a_i \\le N\\)", "\\(1 \\le b_i \\le 10^6\\)"],
-	"output-format" : ["The output file should contain two lines.", "The first line should contain an integer \\(K, 0 \\le K \\le N,\\) the number of groups you decide to meet.", "The second line should contain \\(K\\) integers, the indices of the groups that you decide to meet."]
+	"output-format" : ["The output file should contain two lines.", "The first line should contain an integer \\(K, 0 \\le K \\le N,\\) the number of groups you decide to meet.", "The second line should contain \\(K\\) integers, the indices of the groups that you decide to meet."],
+	"scoring": [],
+	"input-sample": [],
+	"output-sample": [],
+	"scoring-sample": []
 }

@@ -268,3 +268,16 @@ tr, td, th {
 .prev-submissions {
 	overflow: auto;
 }
+
+.code {
+	background-color: #EEEEEE;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 20px;
+	white-space: pre-line;
+}
+
+.explanation {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
