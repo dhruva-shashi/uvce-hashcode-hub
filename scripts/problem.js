@@ -10,7 +10,7 @@ function build_problem(id) {
 	var web_content = "";
 
 	var i;
-
+	
 	web_content += `
 	<div class="sub-header">
 		<div class="problem-title">

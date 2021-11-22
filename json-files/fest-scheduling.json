@@ -11,5 +11,5 @@
 	"scoring": ["The total score awarded is the sum of uniqueness of the events in each time slot", "If the indices do no abide by the constraints, no points will be awarded for that test case."],
 	"input-sample": ["1", "2 2 3", "1 2 3", "2 3 4", "1 2 5", "3 4 5"],
 	"output-sample": ["1 2", "3 4"],
-	"scoring-sample": ["The set of unique description tags for events \\(E_1\\) and \\(E_2\\) will be \\({1, 2, 3, 4}\\)", "The set of unique description tags for events \\(E_3\\) and \\(E_4\\) will be \\({1, 2, 3, 4, 5}\\)", "Hence the total score will be \\(4+5 = 9\\)"]
+	"scoring-sample": ["The set of unique description tags for events \\(E_1\\) and \\(E_2\\) will be \\(\\{1, 2, 3, 4\\}\\)", "The set of unique description tags for events \\(E_3\\) and \\(E_4\\) will be \\(\\{1, 2, 3, 4, 5\\}\\)", "Hence the total score will be \\(4+5 = 9\\)"]
 }
