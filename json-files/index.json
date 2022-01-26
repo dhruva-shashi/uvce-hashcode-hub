@@ -3,18 +3,24 @@
 		"id" : "booksack",
 		"name" : "Booksack",
 		"date" : "21 Sept 2021",
-		"description" : "Select some number of books from a collection of books such that the sum of weight of selected books is maximum"
+		"description" : "Select some number of books from a collection of books such that the sum of weight of selected books is maximum."
 	},
 	{
 		"id" : "meeting-people",
 		"name" : "Meeting People",
 		"date" : "21 Sept 2021",
-		"description" : "Inform the maximum number of individuals about the ongoing events"
+		"description" : "Inform the maximum number of individuals about the ongoing events."
 	},
 	{
 		"id" : "fest-scheduling",
 		"name" : "Fest Scheduling",
 		"date" : "25 Sept 2021",
 		"description" : "As a volunteer in a college fest, try to minimize the number of similar events which occur in the same time slot."
-	}	
+	},
+	{
+		"id" : "even-more-pizza",
+		"name" : "Even More Pizza",
+		"date" : "26 Jan 2022",
+		"description": "Problem from the Practice Round of Google Hash Code 2021."
+	}
 ]
