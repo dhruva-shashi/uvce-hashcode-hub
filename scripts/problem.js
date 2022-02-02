@@ -483,7 +483,7 @@ function build_half_problem(id) {
 		scores[id] = s;
 
 		total.innerHTML = res;
-		document.cookie = 'score='+JSON.stringify(scores)+';expires=Thu, 18 Dec 2030 12:00:00 UTC';
+		document.cookie = 'score='+JSON.stringify(scores)+';expires=Wed, 18 Dec 2030 12:00:00 UTC';
 	}
 
 	function readCookie() {
