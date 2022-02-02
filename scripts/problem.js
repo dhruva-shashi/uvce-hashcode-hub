@@ -213,7 +213,7 @@ function build_problem(id) {
 		var scores = {};
 
 		if (document.cookie != '')
-			scores = JSON.parse(document.cookie.split('=')[1]);
+			scores = JSON.parse(document.cookie.split(';')[0].split('=')[1]);
 
 		var s = '';
 
@@ -230,11 +230,11 @@ function build_problem(id) {
 		scores[id] = s;
 
 		total.innerHTML = res;
-		document.cookie = 'score='+JSON.stringify(scores);
+		document.cookie = 'score='+JSON.stringify(scores)+';expires=Thu, 18 Dec 2030 12:00:00 UTC';
 	}
 
 	function readCookie() {
-		var s = JSON.parse(document.cookie.split('=')[1])[id].split(' ');
+		var s = JSON.parse(document.cookie.split(';')[0].split('=')[1])[id].split(' ');
 		var res = 0;
 
 		for (i = 0; i < parseInt(data['number-files']); i++) {
@@ -249,7 +249,7 @@ function build_problem(id) {
 	}
 
 	function check_me() {
-		var scores = JSON.parse(document.cookie.split('=')[1]);
+		var scores = JSON.parse(document.cookie.split(';')[0].split('=')[1]);
 
 		if (id in scores)
 			return false;
@@ -466,7 +466,7 @@ function build_half_problem(id) {
 		var scores = {};
 
 		if (document.cookie != '')
-			scores = JSON.parse(document.cookie.split('=')[1]);
+			scores = JSON.parse(document.cookie.split(';')[0].split('=')[1]);
 
 		var s = '';
 
@@ -483,11 +483,11 @@ function build_half_problem(id) {
 		scores[id] = s;
 
 		total.innerHTML = res;
-		document.cookie = 'score='+JSON.stringify(scores);
+		document.cookie = 'score='+JSON.stringify(scores)+';expires=Thu, 18 Dec 2030 12:00:00 UTC';
 	}
 
 	function readCookie() {
-		var s = JSON.parse(document.cookie.split('=')[1])[id].split(' ');
+		var s = JSON.parse(document.cookie.split(';')[0].split('=')[1])[id].split(' ');
 		var res = 0;
 
 		for (i = 0; i < parseInt(data['number-files']); i++) {
@@ -502,7 +502,7 @@ function build_half_problem(id) {
 	}
 
 	function check_me() {
-		var scores = JSON.parse(document.cookie.split('=')[1]);
+		var scores = JSON.parse(document.cookie.split(';')[0].split('=')[1]);
 
 		if (id in scores)
 			return false;
