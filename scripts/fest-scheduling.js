@@ -24,11 +24,6 @@ function evaluate(input, output) {
     for (i = 0; i < n; i++) {
         temp = output[i].split(' ');
 
-        if (temp.length != m) {
-            final_score = 0;
-            break;
-        }
-
         for (j = 0; j < m; j++)
             temp[j] = parseInt(temp[j]);
         
